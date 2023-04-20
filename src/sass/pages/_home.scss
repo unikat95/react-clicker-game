@@ -1,0 +1,71 @@
+.home {
+    @include flex(column, center, center);
+
+    background-color: rgb(74, 69, 65);
+    width: 100%;
+    height: 100%;
+
+    &__container {
+        @include flex(column, center, center);
+
+        width: 100%;
+        height: 100%;
+        gap: .5em;
+        padding: 1em .5em;
+
+        &__character {
+            @include flex(column, flex-start, center);
+
+            background-color: rgb(33, 30, 28);
+            width: 100%;
+            height: 100%;
+            border-radius: .5em;
+            overflow: hidden;
+            padding: 2em;
+            gap: .25em;
+
+            &--details{
+                @include flex(row, space-between, center);
+
+                background-color: rgb(41, 36, 33);
+                width: 100%;
+                color: rgb(172, 166, 156);
+                padding: .25em .5em;
+                font-size: 1em;
+                font-weight: 400;
+                text-align: center;
+
+                p {
+                    @include flex(row, flex-end, center);
+
+                    gap: .75em;
+
+                    img {
+
+                        width: 15%;
+                    }
+                }
+
+                &.material {
+                    @include flex(row, flex-end, center);
+
+                    padding: 0;
+
+                    img {
+                        width: 7%;
+                    }
+                }
+            }
+
+            &--img {
+                @include flex(row, center, center);
+
+                margin-bottom: 2em;
+
+                img {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}

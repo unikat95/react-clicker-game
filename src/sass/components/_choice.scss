@@ -1,0 +1,57 @@
+.choice {
+    @include flex(column, space-between, flex-start);
+
+    background-color: rgb(33, 30, 28);
+    width: 100%;
+    height: auto;
+    border-radius: .5em;
+    overflow: hidden;
+    padding: 2em;
+    z-index: 1000;
+    margin-top: -3.15em;
+
+    &__details {
+        @include flex(column, center, flex-start);
+
+        width: 100%;
+        color: $second-text;
+        font-size: 1.25rem;
+        font-weight: 400;
+        gap: 1.5em;
+
+        ul {
+            @include flex(row, center, center);
+
+            width: 100%;
+            height: auto;
+            list-style: none;
+            gap: 1em;
+
+            li {
+                width: 100%;
+
+                a {
+                    @include flex(column, center, center);
+
+                    text-decoration: none;
+                    background: linear-gradient(0deg, rgb(52, 42, 36) 0%, rgb(62, 53, 45) 100%);
+                    border-radius: .5em;
+                    color: $main-text;
+                    font-size: .75rem;
+
+                    &:hover {
+                        background: linear-gradient(0deg, rgb(57, 47, 41) 0%, rgb(67, 58, 50) 100%);
+                    }
+
+                    span {
+                        margin-top: 1em;
+                    }
+
+                    img {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+}

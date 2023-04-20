@@ -1,0 +1,74 @@
+.backpack {
+    @include flex(column, center, center);
+
+    background: rgb(47,39,32);
+    background: linear-gradient(0deg, rgba(47,39,32,1) 0%, rgba(62,55,49,1) 100%);
+    width: 100%;
+    height: auto;
+    max-width: $max-width;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    padding: .5em;
+    transform: translateY(90%);
+    transition: .35s ease-in-out;
+
+    &__container {
+        @include flex(row, flex-start, center);
+
+        width: 100%;
+        background: rgb(24,21,19);
+        background: linear-gradient(0deg, rgba(24,21,19,1) 0%, rgba(34,30,27,1) 100%);
+        border-radius: .5em;
+        padding: 1em;
+        gap: 1em;
+
+        &__switch {
+            @include flex(row, center, center);
+
+            background-color: rgba(62,55,49,1);
+            border: 0;
+            position: absolute;
+            top: -2.6em;
+            left: .5em;
+            gap: .5em;
+            padding: 0 1em 0 .5em;
+            border-radius: .5em .5em 0 0;
+            cursor: pointer;
+
+            span {
+                font-size: 1rem;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: $main-text;
+
+                svg {
+                    color: $main-text;
+                    margin-top: .35em;
+                    transform: rotate(180deg);
+                    transition: transform .35s ease-in-out;
+
+                    &.active {
+                        transform: rotate(0)
+                    }
+                }
+            }
+        }
+
+        &__slot {
+            @include flex(row, center, center);
+
+            width: auto;
+            color: $second-text;
+            gap: .5em;
+
+            img {
+                width: 40%;
+            }
+        }
+    }
+
+    &.open {
+        transform: translateY(0);
+    }
+}

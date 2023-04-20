@@ -1,0 +1,42 @@
+.upgrade {
+    @include flex(row, space-between, center);
+
+    background-color: rgb(17, 16, 15);
+    width: 100%;
+    padding: 1em;
+    color: rgb(227, 215, 195);
+
+    button {
+        background: rgb(217, 196, 136);
+        color: rgb(97, 87, 58);
+        border: 0;
+        padding: .5em 1em;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.15rem;
+        border-radius: .25em;
+
+        &:disabled {
+            filter: grayscale(1) brightness(.5);
+        }
+    }
+
+    &__required {
+        @include flex(column, center, center);
+
+        background-color: #c35555;
+        position: absolute;
+        border-radius: .35em;
+        padding: 1em;
+        bottom: 1em;
+        right: 1em;
+        transition: .15s ease-in-out;
+        transform: translateY(200%);
+        z-index: 1000;
+        color: #fff;
+
+        &.show {
+            transform: translateY(0);
+        }
+    }
+}

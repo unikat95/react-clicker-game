@@ -1,0 +1,88 @@
+.building {
+    @include flex(column, center, center);
+
+    width: 100%;
+    height: auto;
+    padding: 0 1em;
+
+    &__name {
+        @include flex(row, flex-start, center);
+
+        width: 100%;
+        padding-bottom: 1em;
+        color: $main-text;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__upgrade {
+        @include flex(row, center, center);
+
+        width: 100%;
+        padding: 2em 0;
+        color: $main-text;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__container {
+        @include flex(column, center, flex-start);
+
+        background-color: rgb(15, 13, 13);
+        width: 100%;
+        height: auto;
+        padding: 1em;
+        border-radius: .5em;
+        color: $second-text;
+        gap: 1em;
+
+        &__row {
+            @include flex(column, center, center);
+
+            &--title {
+                font-size: 1.15rem;
+                font-weight: 700;
+            }
+
+            &__upgrade {
+                @include flex(column, center, flex-start);
+
+                width: 100%;
+
+                div {
+                    @include flex(row, center, center);
+
+                    .gold {
+                        color: gold;
+                        margin: 0 .75em;
+                    }
+                }
+            }
+
+            &__cost {
+                @include flex(row, flex-start, center);
+
+                width: 100%;
+                gap: 2em;
+
+                div {
+                    @include flex(row, center, center);
+
+                    span {
+                        @include flex(row, center, center);
+
+                        gap: .25em;
+
+                        img {
+                            width: 70%;
+                        }
+
+                        strong {
+                            color: #d54646;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

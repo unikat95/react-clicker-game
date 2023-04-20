@@ -1,0 +1,218 @@
+.field {
+    background-color: rgb(65, 77, 63);
+    background: linear-gradient(0deg, rgb(65, 77, 63) 0%, rgb(80, 89, 69) 100%);
+    width: 100%;
+    height: 100%;
+
+    &__container {
+        @include flex(column, center, center);
+
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &__tree {
+            @include flex(column, center, center);
+
+            width: 30%;
+            position: absolute;
+            transform: translate(var(--tree-x-pos), var(--tree-y-pos));
+
+            &--tree {
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                border: 0;
+                transition: filter .15s ease-in-out;
+                filter: brightness(1.1);
+                animation: tree 10s infinite linear;
+                transform-origin: bottom center;
+                cursor: url('../../assets/axe.svg'), auto;
+
+                &:hover {
+                    filter: brightness(1.2);
+                }
+
+                &.shake {
+                    animation: shakingTree .25s forwards;
+                    transform-origin: bottom center;
+                }
+
+                &:disabled {
+                    filter: brightness(.7) grayscale(.5);
+                    cursor: none;
+                }
+            }
+
+            &--axe {
+                position: absolute;
+                top: 40%;
+                left: 40%;
+                transform: translate(-50%, -50%);
+                transform-origin: right center;
+                animation: autoWork 1.5s infinite;
+                opacity: 1;
+                transition: .25s ease-in-out;
+                cursor: not-allowed;
+            }
+        }
+
+        &__rock {
+            @include flex(column, center, center);
+
+            width: 30%;
+            position: absolute;
+            transform: translate(var(--rock-x-pos), var(--rock-y-pos));
+
+            &--rock {
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                border: 0;
+                transition: filter .15s ease-in-out;
+                filter: brightness(.9);
+                cursor: url('../../assets/pickaxe.svg'), auto;
+
+                &:hover {
+                    filter: brightness(1);
+                }
+
+                &.shake {
+                    animation: shakingRock .25s forwards;
+                    transform-origin: bottom center;
+                }
+
+                &:disabled {
+                    filter: brightness(.7) grayscale(.5);
+                }
+
+                img {
+                    width: 70%;
+                }
+            }
+
+            &--pickaxe {
+                position: absolute;
+                top: 10%;
+                left: 40%;
+                transform: translate(-50%, -50%);
+                transform-origin: right center;
+                animation: autoWork 1.5s infinite;
+                opacity: 1;
+                transition: .25s ease-in-out;
+            }
+        }
+
+        &--timer, &--hp-bar, &--hp-bar2, &--drop {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &--timer {
+            background-color: rgb(218, 185, 80);
+            color: rgb(66, 57, 28);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0 .5em;
+            border-radius: .75em;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        &--hp-bar {
+            @include flex(column, center, flex-start);
+
+            width: 60%;
+            height: .5em;
+            bottom: -1em;
+            border-radius: 50%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: rgb(171, 194, 80);
+                width: var(--hp-width);
+                height: 100%;
+                border-radius: 1em;
+            }
+        }
+
+        &--hp-bar2 {
+            @include flex(column, center, flex-start);
+
+            width: 60%;
+            height: .5em;
+            bottom: -1em;
+            border-radius: 50%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: rgb(171, 194, 80);
+                width: var(--hp-width2);
+                height: 100%;
+                border-radius: 1em;
+            }
+        }
+
+        &--drop {
+            @include flex(column, center, center);
+
+            width: 100%;
+            top: 0;
+            left: 50%;
+            transform: translateY(50%);
+            opacity: 0;
+            z-index: 1000;
+            transition: transform 1.5s ease-in-out;
+
+            &.anim {
+                animation: dropAnimation 1.5s forwards;
+            }
+
+            p {
+                @include flex(row, center, center);
+
+                color: rgb(220, 178, 126);
+                font-size: 1.15rem;
+                font-weight: 900;
+                gap: .25em;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            &--wood {
+                @include flex(row, center, center);
+
+                gap: .35em;
+
+                span {
+                    @include flex(row, center, center);
+                    color: rgb(147, 195, 129);
+                    font-size: 1rem;
+                }
+            }
+
+            &--xp {
+
+                span {
+                    color: #e67a3f;
+                    font-size: 1.65rem;
+                }
+            }
+
+            &--lvlup {
+
+                span {
+                    width: 100%;
+                    color: #f5c91d;
+                    font-size: 1.55rem;
+                    text-shadow: $level-up;
+                }
+            }
+        }
+    }
+}
